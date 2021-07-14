@@ -10,14 +10,6 @@
     <meta http-equiv="Content-Language" content="vi" />
     <meta name="copyright" content="Copyright" />
    
-    <script>
-        var is_iPad = navigator.userAgent.match(/iPad/i) != null;
-        if (is_iPad) {
-            document.write('<meta content="width=1280px" name="viewport">');
-        } else {
-            document.write('<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">');
-        }
-    </script>
 </head>
 <body class="">
     <form id="fwrp" runat="server">
