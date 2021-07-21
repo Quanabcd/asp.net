@@ -39,6 +39,7 @@ public partial class _Default : System.Web.UI.Page
         {
            // bg = " style='background:url(" + weburl + "uploads/banners/" + s + ") top center fixed repeat;'";
         }
+        phmenubm.Controls.Add(LoadControl("home/menu/u_menumobile.ascx"));
         phtop.Controls.Add(LoadControl( "home/skinpart/u_header.ascx"));
         phfooter.Controls.Add(LoadControl("home/skinpart/u_footer.ascx"));
         ph_control.Controls.Add(LoadControl("home/controls.ascx"));

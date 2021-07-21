@@ -11,7 +11,7 @@ public partial class home_advs_u_adv1 : System.Web.UI.UserControl
     protected void Page_Load(object sender, EventArgs e)
     {
         DataTable dt = new DataTable();
-        dt = TN.Advs.GetAdvByPosition("ADV-TT", WEB.Common.Lang);
+        dt = TN.Advs.GetAdvByPosition("ADV-Pro", WEB.Common.Lang);
         rpitems.DataSource = dt;
         rpitems.DataBind();
     }

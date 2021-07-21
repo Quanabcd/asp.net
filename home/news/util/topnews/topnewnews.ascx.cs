@@ -21,12 +21,14 @@ public partial class home_news_topnews_topnewnews : System.Web.UI.UserControl
     }
     protected void LoadItemsList()
     {
-        int top = 5;
+        int top = 4;
         string[] fieldsearch = { "vparam4" };
         DataTable dt = new DataTable();
         dt = TN.Items.GetListItemInCateByPage("-1",fieldsearch, "1", TN.Common.mod_news,lang,"","1", 0, top, "iparam1 asc, dcreatedate DESC");
         rpitems.DataSource = dt;
         rpitems.DataBind();
+        rpnewsright.DataSource = dt;
+        rpnewsright.DataBind();
     }
     
 }

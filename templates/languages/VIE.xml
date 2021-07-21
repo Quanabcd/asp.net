@@ -1,203 +1,55 @@
 <?xml version="1.0" standalone="yes"?>
 <template>
   <item>
-    <ID>lb_producstatus</ID>
-    <VALUE>Trạng thái</VALUE>
-  </item>
-  <item>
-    <ID>test</ID>
-    <VALUE>giá trị mới</VALUE>
-  </item>
-  <item>
-    <ID>lb_dangkyemaildenhanngayvoucher</ID>
-    <VALUE>ĐĂNG KÝ EMAIL ĐỂ NHẬN NGAY VOUCHER</VALUE>
-  </item>
-  <item>
-    <ID>lb_nhapemailcuaban</ID>
-    <VALUE>Nhập email của bạn</VALUE>
-  </item>
-  <item>
-    <ID>lb_dangkynhanmail</ID>
-    <VALUE>Đăng ký</VALUE>
-  </item>
-  <item>
-    <ID>lb_trangchu</ID>
-    <VALUE>Trang chủ</VALUE>
-  </item>
-  <item>
-    <ID>lt_producstatus</ID>
-    <VALUE />
-  </item>
-  <item>
-    <ID>lt_productslg</ID>
-    <VALUE />
-  </item>
-  <item>
-    <ID>lb_masp</ID>
-    <VALUE>Mã SP</VALUE>
-  </item>
-  <item>
-    <ID>lb_sanphamcungnhom</ID>
-    <VALUE>Sản phẩm cùng nhóm</VALUE>
-  </item>
-  <item>
-    <ID>lb_hotrotructuyen</ID>
-    <VALUE>Hỗ Trợ Trực Tuyến</VALUE>
-  </item>
-  <item>
-    <ID>lb_thongke</ID>
-    <VALUE>Thống kê</VALUE>
-  </item>
-  <item>
-    <ID>lb_dangonline</ID>
-    <VALUE>Online</VALUE>
-  </item>
-  <item>
-    <ID>lb_truycaphomnay</ID>
-    <VALUE>Hôm nay</VALUE>
-  </item>
-  <item>
-    <ID>lb_truycaphomqua</ID>
-    <VALUE>Hôm qua</VALUE>
-  </item>
-  <item>
-    <ID>lb_truycaptrongthang</ID>
-    <VALUE>Trong tháng</VALUE>
-  </item>
-  <item>
-    <ID>lb_tongtruycap</ID>
-    <VALUE>Tổng</VALUE>
-  </item>
-  <item>
-    <ID>lb_giohang</ID>
-    <VALUE>Giỏ hàng</VALUE>
-  </item>
-  <item>
-    <ID>lb_dathang</ID>
-    <VALUE>Đặt hàng</VALUE>
-  </item>
-  <item>
-    <ID>lb_huydonhang</ID>
-    <VALUE>Hủy đơn hàng</VALUE>
-  </item>
-  <item>
-    <ID>lb_tieptucmua</ID>
-    <VALUE>Tiếp tục mua</VALUE>
-  </item>
-  <item>
-    <ID>lb_thanhtoan</ID>
-    <VALUE>Thanh toán</VALUE>
-  </item>
-  <item>
-    <ID>lb_suadonhang</ID>
-    <VALUE>Sửa đơn hàng</VALUE>
-  </item>
-  <item>
-    <ID>lb_bancomuonxoakhong</ID>
-    <VALUE>Bạn có muốn xóa không</VALUE>
-  </item>
-  <item>
-    <ID>lb_thongtingiohang</ID>
-    <VALUE>1. THÔNG TIN GIỎ HÀNG</VALUE>
-  </item>
-  <item>
-    <ID>lb_hinhanh</ID>
-    <VALUE>Hình ảnh</VALUE>
-  </item>
-  <item>
-    <ID>lb_tensanpham</ID>
-    <VALUE>Tên sản phẩm</VALUE>
-  </item>
-  <item>
-    <ID>lb_soluong</ID>
-    <VALUE>Số lượng</VALUE>
-  </item>
-  <item>
-    <ID>lb_dongia</ID>
-    <VALUE>Đơn giá</VALUE>
-  </item>
-  <item>
-    <ID>lb_thanhtien</ID>
-    <VALUE>Thành tiền</VALUE>
-  </item>
-  <item>
-    <ID>lb_masanpham</ID>
-    <VALUE>Mã sản phẩm</VALUE>
-  </item>
-  <item>
-    <ID>lb_xoa</ID>
-    <VALUE>Xóa</VALUE>
-  </item>
-  <item>
-    <ID>lb_tongtien</ID>
-    <VALUE>Tổng tiền</VALUE>
-  </item>
-  <item>
-    <ID>lb_thongtinkhachhang</ID>
-    <VALUE>2. Thông tin Khách Hàng</VALUE>
-  </item>
-  <item>
-    <ID>lb_gioitinhnam</ID>
-    <VALUE>Anh</VALUE>
-  </item>
-  <item>
-    <ID>lb_gioitinhnu</ID>
-    <VALUE>Chị</VALUE>
-  </item>
-  <item>
-    <ID>lb_hoten</ID>
-    <VALUE>Họ và tên</VALUE>
-  </item>
-  <item>
-    <ID>lb_sodienthoai</ID>
-    <VALUE>Số điện thoại</VALUE>
-  </item>
-  <item>
-    <ID>lb_diachithoigiangiaohang</ID>
-    <VALUE>Địa chỉ, thời gian GIAO HÀNG NHANH</VALUE>
-  </item>
-  <item>
-    <ID>lb_tinhthanh</ID>
-    <VALUE>Tỉnh thành</VALUE>
-  </item>
-  <item>
-    <ID>lb_quanhuyen</ID>
-    <VALUE>Quận / huyện</VALUE>
-  </item>
-  <item>
-    <ID>lb_diachi</ID>
-    <VALUE>Địa chỉ</VALUE>
-  </item>
-  <item>
-    <ID>lb_ghichu</ID>
-    <VALUE>Ghi chú</VALUE>
-  </item>
-  <item>
-    <ID>lb_hinhthucthanhtoan</ID>
-    <VALUE>Hình thức thanh toán</VALUE>
-  </item>
-  <item>
-    <ID>lb_guilienhe</ID>
-    <VALUE>Gửi liên hệ</VALUE>
-  </item>
-  <item>
-    <ID>lb_huylienhe</ID>
-    <VALUE>Hủy bỏ</VALUE>
-  </item>
-  <item>
-    <ID>lb_lienhe</ID>
-    <VALUE>Liên hệ</VALUE>
-  </item>
-  <item>
-    <ID>lb_tieude</ID>
-    <VALUE>Tiêu đề</VALUE>
-  </item>
-  <item>
-    <ID>lb_noidung</ID>
-    <VALUE>Nội dung</VALUE>
-  </item>
-  <item>
     <ID>lb_sanpham</ID>
     <VALUE>Sản phẩm</VALUE>
+  </item>
+  <item>
+    <ID>lb_newsnew</ID>
+    <VALUE>TIN TỨC &amp;amp; BLOG</VALUE>
+  </item>
+  <item>
+    <ID>lb_cacsanpham</ID>
+    <VALUE>CÁC SẢN PHẨM CỦA CHÚNG TÔI</VALUE>
+  </item>
+  <item>
+    <ID>lb_tvha</ID>
+    <VALUE>THƯ VIỆN HÌNH ẢNH</VALUE>
+  </item>
+  <item>
+    <ID>lb_title_COMMENTS</ID>
+    <VALUE>HỌ NÓI GÌ VỀ CHÚNG TÔI</VALUE>
+  </item>
+  <item>
+    <ID>lb_title_partner</ID>
+    <VALUE>ĐỐI TÁC TIÊU BIỂU</VALUE>
+  </item>
+  <item>
+    <ID>lb_contact_us</ID>
+    <VALUE>Contact Us</VALUE>
+  </item>
+  <item>
+    <ID>lb_fl_tw</ID>
+    <VALUE>Follow us on Twitter</VALUE>
+  </item>
+  <item>
+    <ID>lb_fl_fb</ID>
+    <VALUE>Follow us on Facebook</VALUE>
+  </item>
+  <item>
+    <ID>lb_coppy_right</ID>
+    <VALUE>EMG Education 2019. All rights reserved</VALUE>
+  </item>
+  <item>
+    <ID>lb_ennter_youremail</ID>
+    <VALUE>Vui lòng nhập đúng địa chỉ email</VALUE>
+  </item>
+  <item>
+    <ID>lb_suc_email</ID>
+    <VALUE>Đăng ký email thành công</VALUE>
+  </item>
+  <item>
+    <ID>lb_enter_full_email</ID>
+    <VALUE>Vui lòng nhập đầy đủ thông tin</VALUE>
   </item>
 </template>

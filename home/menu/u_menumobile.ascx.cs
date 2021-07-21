@@ -17,9 +17,6 @@ public partial class home_menu_u_menumobile : System.Web.UI.UserControl
     public string weburl = WEB.Common.Weburl;
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-            ltmenu.Text = bindmenu();
-        
     }
     protected string bindmenu()
     {

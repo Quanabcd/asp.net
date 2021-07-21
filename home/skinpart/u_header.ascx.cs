@@ -11,81 +11,94 @@ public partial class home_skinpart_u_header : System.Web.UI.UserControl
     public string weburl = WEB.Common.Weburl;
     protected void Page_Load(object sender, EventArgs e)
     {
-        //WEB.Layout.LoadControlToPlaceholder(ref ph_search, "~/home/menu/u_search.ascx");
-        //WEB.Layout.LoadControlToPlaceholder(ref ph_searchmobi, "~/home/menu/u_searchmobi.ascx");
-        //WEB.Layout.LoadControlToPlaceholder(ref ph_menu, "~/home/menu/menu.ascx");
-        //WEB.Layout.LoadControlToPlaceholder(ref ph_menumobi, "~/home/menu/u_menumobile.ascx");
-        //WEB.Layout.LoadControlToPlaceholder(ref ph_menucates, "~/home/products/util/menu/u_menu_cates.ascx");
-        //WEB.Layout.LoadControlToPlaceholder(ref ph_menucatesmobi, "~/home/products/util/menu/u_menucatesmobi.ascx");
-        //loadbanner();
-        //loadcart();
-        //string face = WEB.Config.getvaluebykey(WEB.Config.k_socialfaceurl, lang);
-        //string google = WEB.Config.getvaluebykey(WEB.Config.k_socialgoogleurl, lang);
-        //string twitter = WEB.Config.getvaluebykey(WEB.Config.k_socialtwitterurl, lang);
-        //string youtube = WEB.Config.getvaluebykey(WEB.Config.k_socialyoutubeurl, lang);
-        //string intagram = WEB.Config.getvaluebykey(WEB.Config.k_socialintagramurl, lang);
+        ltmenu.Text = bindmenu();
+        ltmenumb.Text = bindmenumb();
     }
-    //protected void loadbanner()
-    //{
-    //    string banner = WEB.Config.getvaluebykey(WEB.Config.k_webbanner, lang);
-    //    string width = WEB.Config.getvaluebykey(WEB.Config.k_webbanner_width, lang);
-    //    string height = WEB.Config.getvaluebykey(WEB.Config.k_webbanner_height, lang);
-    //    if (banner.Contains(".swf"))
-    //    {
 
-    //    }
-    //    else
-    //    {
-    //        string title = WEB.Config.getvaluebykey(WEB.Config.k_webtitle, lang);
+    protected string bindmenu()
+    {
+        string str = @"";
+        DataTable dt = new DataTable();
+        WEB.Category.getcategorylevel1(ref dt, "-1", WEB.Common.mod_menu, lang, "1");
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            if (Submenu(dt.Rows[i]["icid"].ToString()).Length > 0)
+            {
+                str += "<li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children'><a  class='' href='" + dt.Rows[i]["vdesc"].ToString() + "'><span>" + dt.Rows[i]["vname"].ToString() + "</span></a>";
 
-    //        lt_logo.Text = "<a class='logo'  href='/'><img  src='" + weburl + "uploads/banners/" + banner + "'  alt='" + title + "'/></a>";
-    //        lt_logomobi.Text = "<a class=''  href='/'><img  src='" + weburl + "uploads/banners/" + banner + "'  alt='" + title + "'/></a>";
-    //    }
-    //}
+                str += Submenu(dt.Rows[i]["icid"].ToString());
 
-    //public void loadcart()
-    //{
-    //    string str = "";
+                str += "</li>";
+            }
+            else
+            {
+                str += "<li  class='menu-item menu-item-type-post_type menu-item-object-page '><a class='' href='" + dt.Rows[i]["vdesc"].ToString() + "'><span>" + dt.Rows[i]["vname"].ToString() + "</span></a>";
+                str += "</li>";
+            }
+        }
 
-    //    if (null != WEB.Common.getCookie("tn-cart") && WEB.Common.getCookie("tn-cart").Length > 0)
-    //    {
-    //        string cartid = WEB.Common.getCookie("tn-cart");
-    //        DataTable dt = new DataTable();
-    //        dt = WEB.Cart.Cartdetail.getlisitem(cartid, "", "icartdetail asc");
-    //        if (dt.Rows.Count > 0)
-    //        {
-    //            float total = 0;
-    //            int num = 0;
 
-    //            for (int i = 0; i < dt.Rows.Count; i++)
-    //            {
-    //                total += Convert.ToSingle(dt.Rows[i]["fvalue"]);
-    //                num += Convert.ToInt32(dt.Rows[i]["inumber"]);
 
-    //            }
+        return str;
+    }
+    public string Submenu(string icid)
+    {
+        string str = "";
+        DataTable dt = WEB.Category.getlisitem(WEB.Common.mod_menu, lang, "iparcid='" + icid + "'", "iorders desc");
+        if (dt.Rows.Count > 0)
+        {
 
-    //            lt_num2.Text= num.ToString() +" Sản phẩm";
-    //            lt_counts.Text =  num.ToString() ;
-    //            lt_counts1.Text =  num.ToString() ;
+            str += "<ul class='sub-menu'>";
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str += "<li  class='menu-item menu-item-type-post_type menu-item-object-page '><a class='' href='" + dt.Rows[i]["vdesc"].ToString() + "'><span>" + dt.Rows[i]["vname"].ToString() + "</span></a>";
+                str += "</li>";
+            }
+            str += "</ul>";
+        }
+        return str;
+    }
+    protected string bindmenumb()
+    {
+        string str = @"";
+        DataTable dt = new DataTable();
+        WEB.Category.getcategorylevel1(ref dt, "-1", WEB.Common.mod_menu, lang, "1");
+        for (int i = 0; i < dt.Rows.Count; i++)
+        {
+            if (Submenumb(dt.Rows[i]["icid"].ToString()).Length > 0)
+            {
+                str += "<li class='menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children'><a  class='' href='" + dt.Rows[i]["vdesc"].ToString() + "'><span>" + dt.Rows[i]["vname"].ToString() + "</span></a>";
 
-    //        }
-    //        else
-    //        {
-    //            //lt_num2.Text = "0 Sản phẩm";
-    //            lt_counts.Text = "0";
-    //            lt_counts1.Text = "0";
-    //        }
-    //    }
-    //    else
-    //    {
-    //        //lt_num2.Text = "0 Sản phẩm";
-    //        lt_counts.Text = "0";
-    //        lt_counts1.Text = "0";
+                str += Submenumb(dt.Rows[i]["icid"].ToString());
 
-    //    }
+                str += "</li>";
+            }
+            else
+            {
+                str += "<li  class='menu-item menu-item-type-post_type menu-item-object-page '><a class='' href='" + dt.Rows[i]["vdesc"].ToString() + "'><span>" + dt.Rows[i]["vname"].ToString() + "</span></a>";
+                str += "</li>";
+            }
+        }
 
-    //    //lt_cart.Text = str;
-    //}
-  
-  
+
+
+        return str;
+    }
+    public string Submenumb(string icid)
+    {
+        string str = "";
+        DataTable dt = WEB.Category.getlisitem(WEB.Common.mod_menu, lang, "iparcid='" + icid + "'", "iorders desc");
+        if (dt.Rows.Count > 0)
+        {
+
+            str += "<ul class='sub-menu'>";
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                str += "<li  class='menu-item menu-item-type-post_type menu-item-object-page '><a class='' href='" + dt.Rows[i]["vdesc"].ToString() + "'><span>" + dt.Rows[i]["vname"].ToString() + "</span></a>";
+                str += "</li>";
+            }
+            str += "</ul>";
+        }
+        return str;
+    }
 }

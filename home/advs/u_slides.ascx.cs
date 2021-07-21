@@ -14,8 +14,6 @@ public partial class home_advs_u_slides : System.Web.UI.UserControl
         dt = TN.Advs.GetAdvByPosition("ADV-HPHP3", WEB.Common.Lang);
         rpitems.DataSource = dt;
         rpitems.DataBind();
-     
-        
     }
     public string getstt()
     {

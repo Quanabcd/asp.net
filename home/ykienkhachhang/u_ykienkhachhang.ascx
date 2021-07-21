@@ -41,46 +41,42 @@
         }
     }
 </script>
+<div class="content_row row vc_row wpb_row  default-style fullwidth">
+    <div class="content_row_wrapper  default" style="padding-top: 50px; padding-bottom: 50px; padding-left: 50px; padding-right: 50px;">
+        <div class="vc_col-sm-12 wpb_column vc_column_container">
+            <div class="wpb_wrapper">
+                <div class="rt_heading_wrapper style-4">
+                    <h3 class="rt_heading  style-4"><%=WEB.Common.Getlabel("lb_title_COMMENTS","HỌ NÓI GÌ VỀ CHÚNG TÔI",WEB.Common.Lang )%></h3>
+                </div>
+                <div id="slider-testimonial-dynamicID-644093" class="rt-carousel rt-image-carousel carousel-holder clearfix testimonial-carousel testimonials center big" data-item-width="1" data-nav="true" data-dots="false" data-margin="15" data-autoplay="true" data-timeout="5500" data-loop="true" data-tablet-item-width="" data-mobile-item-width="1">
+                    <div class="owl-carousel">
+                        <asp:Repeater ID="rpitems" runat="server">
+                            <ItemTemplate>
+                                <div>
+                                    <div class="testimonial item">
+
+                                        <div class="client_image gradient">
+                                            <%#getimg(Eval("vimg").ToString(),Eval("vtitle").ToString()) %>
+                                        </div>
 
 
-
-
-
-<section class="awe-section-5">
-    <div class="section_tour-holiday">
-        <div class="container">
-            <div class="row">
-                <div class="section_tour-new_title">
-                    <h2><%=WEB.Common.Getlabel("lb_title_COMMENTS","COMMENTS",WEB.Common.Lang )%></h2>
-                    <div class="title-line">
-                        <div class="tl-1"></div>
-                        <div class="tl-2"></div>
-                        <div class="tl-3"></div>
+                                        <div class="text with_image">
+                                            <p>
+                                                <span class="icon-quote-left"></span>
+                                                <%#Eval("vdesc") %>                                            
+                                            </p>
+                                            <div class="client_info">
+                                                Anh <%#Eval("vtitle") %> 
+		                                    - <span><%#Eval("vcontent") %></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
-
                 </div>
             </div>
-            <div class="ykkh owl-carousel ">
-                <asp:Repeater ID="rpitems" runat="server">
-                    <ItemTemplate>
-                        <div class="item">
-                            <div class="ykkh-img">
-                                <%#getimg(Eval("vimg").ToString(),Eval("vtitle").ToString()) %>
-                            </div>
-                            <div class="ykkh-content">
-                                <div class="ykkh-title">
-                                    <p><%#Eval("vtitle") %>   - </p>
-                                    <span><%#Eval("vcontent") %> </span>
-                                </div>
-                                <div class="ykkh-desc">
-                                    <%#Eval("vdesc") %>
-                                </div>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
-            </div>
-            <div class="comment_button"><a href="/ykienbinhluan"><%=WEB.Common.Getlabel("lb_title_comentarios","Comments",WEB.Common.Lang )%></a></div>
         </div>
     </div>
-</section>
+</div>

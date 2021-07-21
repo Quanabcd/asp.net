@@ -200,4 +200,40 @@
     <ID>lb_sanpham</ID>
     <VALUE>Sản phẩm</VALUE>
   </item>
+  <item>
+    <ID>lb_cacsanpham</ID>
+    <VALUE>CÁC SẢN PHẨM CỦA CHÚNG TÔI</VALUE>
+  </item>
+  <item>
+    <ID>lb_newsnew</ID>
+    <VALUE>TIN TỨC &amp;amp; BLOG</VALUE>
+  </item>
+  <item>
+    <ID>lb_tvha</ID>
+    <VALUE>THƯ VIỆN HÌNH ẢNH</VALUE>
+  </item>
+  <item>
+    <ID>lb_title_COMMENTS</ID>
+    <VALUE>HỌ NÓI GÌ VỀ CHÚNG TÔI</VALUE>
+  </item>
+  <item>
+    <ID>lb_title_partner</ID>
+    <VALUE>ĐỐI TÁC TIÊU BIỂU</VALUE>
+  </item>
+  <item>
+    <ID>lb_contact_us</ID>
+    <VALUE>Contact Us</VALUE>
+  </item>
+  <item>
+    <ID>lb_fl_tw</ID>
+    <VALUE>Follow us on Twitter</VALUE>
+  </item>
+  <item>
+    <ID>lb_fl_fb</ID>
+    <VALUE>Follow us on Facebook</VALUE>
+  </item>
+  <item>
+    <ID>lb_coppy_right</ID>
+    <VALUE>EMG Education 2019. All rights reserved</VALUE>
+  </item>
 </template>
