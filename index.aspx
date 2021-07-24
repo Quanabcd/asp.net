@@ -89,7 +89,6 @@
 
 
         .select2-container .select2-choice, input[type=date], input[type=datetime-local], input[type=email], input[type=input], input[type=month], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=time], input[type=url], select, textarea {
-            padding: 12px 10px;
             border-width: 1px;
             border-style: solid;
             background-color: rgb(236, 133, 0);

@@ -20,10 +20,15 @@ public partial class home_news_default_u_news_cate : System.Web.UI.UserControl
     public int numitems = 0;
     public int icid = -1;
     public string alias = "";
+    public string img = "";
+    public string imglang = "";
     public ArrayList ar = new ArrayList();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (lang == "VIE")
+            imglang = "<a href='/lien-he' target='_blank' class='vc_single_image-wrapper vc_box_border_grey'><img width='250' height='56' src='/templates/home/images/lien-he-EMG.png' class='vc_single_image-img attachment-full' alt='lien-he-EMG.png' /></a>";
+        else
+            imglang = "<a href='/lien-he' target='_blank' class='vc_single_image-wrapper vc_box_border_grey'><img width='250' height='56' src='/templates/home/images/contact-EMG.png' class='vc_single_image-img attachment-full' alt='contact-EMG.png' /></a>";
         string desc_web = WEB.Config.getvaluebykey(WEB.Config.k_webdesc, lang);
         string key_web = WEB.Config.getvaluebykey(WEB.Config.k_webkeyword, lang);
         string t_web = WEB.Config.getvaluebykey(WEB.Config.k_webtitle, lang);
@@ -32,10 +37,10 @@ public partial class home_news_default_u_news_cate : System.Web.UI.UserControl
         DataTable dtcate = WEB.Category.getcatebyfield("valias", alias);
         if (dtcate.Rows.Count > 0)
         {
-           ltname.Text= this.catename = dtcate.Rows[0]["vname"].ToString();
+            ltname.Text = this.catename = dtcate.Rows[0]["vname"].ToString();
+            img = "/uploads/contents/images" + dtcate.Rows[0]["vimg"].ToString();
             //ltcatename.Text = dtcate.Rows[0]["vname"].ToString();
             icid = Convert.ToInt32(dtcate.Rows[0]["icid"]);
-            roadlink(dtcate.Rows[0]["icid"].ToString());
             icid = Convert.ToInt32(dtcate.Rows[0]["icid"]);
             numitems = WEB.Items.getnumitems("", new string[0], WEB.Common.mod_content, icid.ToString(), lang, "", "1");
             t_web = this.catename;
@@ -62,7 +67,6 @@ public partial class home_news_default_u_news_cate : System.Web.UI.UserControl
             {
                 foreach (Control c in this.Page.Header.Controls)
                 {
-
                     HtmlMeta hm1 = c as HtmlMeta;
                     if (hm1 != null && hm1.Name.Equals("description", StringComparison.InvariantCultureIgnoreCase))
                     {
@@ -72,15 +76,15 @@ public partial class home_news_default_u_news_cate : System.Web.UI.UserControl
                     {
                         hm1.Content = key_web;
                     }
-
                 }
             }
-
             this.Page.Title = t_web;
         }
         catch { }
         LoadItemsList();
-
+        loadcontent_top("top_about");
+        loadcontent_bottom("bot_about");
+        qc();
     }
     protected void LoadItemsList()
     {
@@ -102,65 +106,104 @@ public partial class home_news_default_u_news_cate : System.Web.UI.UserControl
             Response.Redirect(weburl + dt.Rows[0]["valias"].ToString());
         if (alias == "" && icid == -1)
             alias = "noi-dung";
-        rpitems.DataSource = dt;
-        rpitems.DataBind();
-        ltpage.Text = WEB.Common.PhanTrangRewrite(weburl + alias, p, numitems, itemperpage);
-    }
-
-    protected void roadlink(string cid)
-    {
-        string str = "";
-        ar.Add(cid);
-        DataTable dt = WEB.Category.getcatebyfield("icid", cid);
         if (dt.Rows.Count > 0)
         {
-            getpar(dt.Rows[0]["iparcid"].ToString());
-        }
-        if (ar.Count > 0)
-        {
-            for (int i = ar.Count - 1; i >= 0; i--)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                DataTable dtc = WEB.Category.getcatebyfield("icid", ar[i].ToString());
-                if (dtc.Rows.Count > 0)
+                if (i % 2 == 0)
                 {
+                    ltitems.Text += "<div class='content_row row wpb_row  default-style fullwidth border-bottom' style='background-color: #f57d27;'>";
+                    ltitems.Text += " <div class='content_row_wrapper  align-contents content-align-middle nopadding default'>";
+                    ltitems.Text += " <div class='vc_col-sm-12 wpb_column vc_column_container'>";
+                    ltitems.Text += "     <div class='wpb_wrapper'>";
+                    ltitems.Text += "         <div class='content_row row vc_row wpb_row vc_inner  global-style'>";
+                    ltitems.Text += "             <div class='content_row_wrapper  ' style='padding-left: 80px; padding-right: 80px;'>";
+                    ltitems.Text += "               <div class='vc_col-sm-6 wpb_column vc_column_container vc_custom_1553915490983'>";
+                    ltitems.Text += "                  <div class='wpb_wrapper'>";
+                    ltitems.Text += "                      <div class='vc_empty_space' style='height: 50px'><span class='vc_empty_space_inner'></span></div>";
+                    ltitems.Text += "                     <div class='wpb_text_column wpb_content_element wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp wpb_start_animation animated'>";
+                    ltitems.Text += "                        <div class='wpb_wrapper'>";
+                    ltitems.Text += dt.Rows[i]["vcontent"].ToString();
+                    ltitems.Text += "                      </div>";
+                    ltitems.Text += "                 </div>";
+                    ltitems.Text += "                 <div class='vc_empty_space' style='height: 50px'><span class='vc_empty_space_inner'></span></div>";
+                    ltitems.Text += "            </div>";
+                    ltitems.Text += "        </div>";
+                    ltitems.Text += "   <div class='vc_col-sm-6 wpb_column vc_column_container'>";
+                    ltitems.Text += "        <div class='wpb_wrapper'>";
+                    ltitems.Text += "          <div class='wpb_single_image wpb_content_element vc_align_left'>";
+                    ltitems.Text += "              <figure class='wpb_wrapper vc_figure'>";
+                    ltitems.Text += "               <div class='vc_single_image-wrapper   vc_box_border_grey'>";
+                    ltitems.Text += "                  <img width = '669' height = '480' src = '/uploads/contents/" + dt.Rows[i]["vimg"].ToString() + "' class='vc_single_image-img attachment-full' alt='" + dt.Rows[i]["vtitle"].ToString() + "' />";
+                    ltitems.Text += "               </div>";
+                    ltitems.Text += "            </figure>";
+                    ltitems.Text += "         </div>";
+                    ltitems.Text += "          </div>";
+                    ltitems.Text += "          </div>";
+                    ltitems.Text += "         </div>";
+                    ltitems.Text += "      </div>";
+                    ltitems.Text += "     </div>";
+                    ltitems.Text += "  </div>";
+                    ltitems.Text += "  </div>";
+                    ltitems.Text += "</div>";
+                }
+                else
+                {
+                    ltitems.Text += "<div class='content_row row wpb_row  default-style fullwidth border-bottom'>";
+                    ltitems.Text += " <div class='content_row_wrapper  align-contents content-align-middle nopadding default'>";
+                    ltitems.Text += " <div class='vc_col-sm-12 wpb_column vc_column_container'>";
+                    ltitems.Text += "     <div class='wpb_wrapper'>";
+                    ltitems.Text += "         <div class='content_row row vc_row wpb_row vc_inner  global-style'>";
+                    ltitems.Text += "             <div class='content_row_wrapper  ' style='padding-left: 80px; padding-right: 80px;'>";
+                    ltitems.Text += "  <div class='vc_col-sm-6 wpb_column vc_column_container'>";
+                    ltitems.Text += "        <div class='wpb_wrapper'>";
+                    ltitems.Text += "          <div class='wpb_single_image wpb_content_element vc_align_left'>";
+                    ltitems.Text += "                  <img width = '669' height = '480' src = '/uploads/contents/" + dt.Rows[i]["vimg"].ToString() + "' class='vc_single_image-img attachment-full' alt='" + dt.Rows[i]["vtitle"].ToString() + "' />";
+                    ltitems.Text += "         </div>";
+                    ltitems.Text += "          </div>";
+                    ltitems.Text += "          </div>";
+                    ltitems.Text += "               <div class='vc_col-sm-6 wpb_column vc_column_container vc_custom_1553915490983'>";
+                    ltitems.Text += "                  <div class='wpb_wrapper'>";
+                    ltitems.Text += "                      <div class='vc_empty_space' style='height: 50px'><span class='vc_empty_space_inner'></span></div>";
+                    ltitems.Text += "                     <div class='wpb_text_column wpb_content_element wpb_animate_when_almost_visible wpb_fadeInUp fadeInUp wpb_start_animation animated'>";
+                    ltitems.Text += "                        <div class='wpb_wrapper'>";
+                    ltitems.Text += dt.Rows[i]["vcontent"].ToString();
+                    ltitems.Text += "                      </div>";
+                    ltitems.Text += "                 </div>";
+                    ltitems.Text += "                 <div class='vc_empty_space' style='height: 50px'><span class='vc_empty_space_inner'></span></div>";
+                    ltitems.Text += "            </div>";
+                    ltitems.Text += "        </div>";
 
-                    DataTable dtcc = new DataTable();
-                    WEB.Category.getcategory(ref dtcc, dtc.Rows[0]["icid"].ToString(), WEB.Common.mod_news, lang, "", "1");
-                    if (dtcc.Rows.Count > 0)
-                    {
-
-                        str += "<li><a href='/" + dtc.Rows[0]["valias"].ToString() + "' class='' title='" + dtc.Rows[0]["vname"].ToString() + "'>" + dtc.Rows[0]["vname"].ToString() + "</a>";
-
-                        for (int j = 0; j < dtcc.Rows.Count; j++)
-                        {
-
-                            str += "<li><a href='/" + dtcc.Rows[j]["valias"].ToString() + "'  title='" + dtcc.Rows[j]["vname"].ToString() + "'>" + dtcc.Rows[j]["vname"].ToString() + "</a></li>";
-                        }
-                    }
-                    else
-                    {
-
-                        str += "<li><a href='/" + dtc.Rows[0]["valias"].ToString() + "' class='' title='" + dtc.Rows[0]["vname"].ToString() + "'>" + dtc.Rows[0]["vname"].ToString() + "</a>";
-                    }
-
-
+                    ltitems.Text += "         </div>";
+                    ltitems.Text += "      </div>";
+                    ltitems.Text += "     </div>";
+                    ltitems.Text += "  </div>";
+                    ltitems.Text += "  </div>";
+                    ltitems.Text += "</div>";
                 }
             }
         }
-        ltrl.Text = str;
+        ltpage.Text = WEB.Common.PhanTrangRewrite(weburl + alias, p, numitems, itemperpage);
     }
-    protected void getpar(string cid)
+    protected void loadcontent_bottom(string key)
     {
-        if (cid != "-1")
-            ar.Add(cid);
-        DataTable dt = WEB.Category.getcatebyfield("icid", cid);
-        if (dt.Rows.Count > 0)
-        {
-            if (dt.Rows[0]["iparcid"].ToString() != "-1")
-            {
-                //   ar.Add(dt.Rows[0]["iparcid"].ToString());
-                getpar(dt.Rows[0]["iparcid"].ToString());
-            }
-        }
+        string condition = "vcode ='" + WEB.Common.mod_independent + "' and istatus=1 and vdesc='" + key + "' and vlan='" + WEB.Common.Lang + "' ";
+        DataTable dt = WEB.Item_other.getlistitembypage(new string[0], "", condition, 0, 30, " iid DESC");
+        rpitems.DataSource = dt;
+        rpitems.DataBind();
+    }
+    protected void loadcontent_top(string key)
+    {
+        string condition = "vcode ='" + WEB.Common.mod_independent + "' and istatus=1 and vdesc='" + key + "' and vlan='" + WEB.Common.Lang + "' ";
+        DataTable dt = WEB.Item_other.getlistitembypage(new string[0], "", condition, 0, 30, " iid DESC");
+        rpcontent.DataSource = dt;
+        rpcontent.DataBind();
+    }
+    public void qc()
+    {
+        DataTable dt = new DataTable();
+        dt = TN.Advs.GetAdvByPosition("ADV-abous", WEB.Common.Lang);
+        rpitemsqc.DataSource = dt;
+        rpitemsqc.DataBind();
     }
 }

@@ -144,15 +144,21 @@ public class SearchAirport : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string sendemailservices(string email1)
+    public string sendemailservices(string name1,string email1,string phone1,string city1,string check)
     {
 
-        string content = "";
+        string content = "<b>Đăng ký khoá học</b><br>";
+        content += "Bạn nhận được thông tin đăng ký từ website: <a href='" + WEB.Common.Weburl + "'>" + WEB.Common.Weburl + "</a><br>";
+        content += "<b>Họ và tên</b> : " + name1 + "<br>";
+        content += "<b>Email</b> : " + email1 + "<br>";
+        content += "<b>Số điện thoại</b> : " + phone1 + "<br>";
+        content += "<b>Thành phố</b> : " + city1 + "<br>";
+        content += "<b>Bạn có phải là học sinh..??</b> : " + check + "<br>";
 
         content += email1;
 
 
-        WEB.Item_other.db_items_other_insert("-1", WEB.Common.mod_contacts, WEB.Common.Lang, "Đăng ký nhận email", "Đăng ký nhận email", "", DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), "0", "0", "0", email1, "", "", "", "", "0", "0");
+        WEB.Item_other.db_items_other_insert("-1", WEB.Common.mod_contacts, WEB.Common.Lang, name1, "Đăng ký khoá học", content, DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), DateTime.Now.ToString("MM/dd/yyyy hh:mm:ss tt"), "0", "0", "0", email1, phone1, city1, "", "", "0", "0");
         string email = WEB.Config.getvaluebykey(WEB.Config.k_comemail, WEB.Common.Lang);
 
         string emailsend = WEB.Config.getvaluebykey(WEB.Config.k_sysemail, WEB.Common.Lang);

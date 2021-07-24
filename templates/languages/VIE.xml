@@ -52,4 +52,64 @@
     <ID>lb_enter_full_email</ID>
     <VALUE>Vui lòng nhập đầy đủ thông tin</VALUE>
   </item>
+  <item>
+    <ID>lb_namhs</ID>
+    <VALUE>Student Name</VALUE>
+  </item>
+  <item>
+    <ID>lb_phonehs</ID>
+    <VALUE>Phone Number</VALUE>
+  </item>
+  <item>
+    <ID>lb_city</ID>
+    <VALUE>City</VALUE>
+  </item>
+  <item>
+    <ID>lb_emailhs</ID>
+    <VALUE>Email Address</VALUE>
+  </item>
+  <item>
+    <ID>lb_areyou...</ID>
+    <VALUE>Are you an existing ILA student?</VALUE>
+  </item>
+  <item>
+    <ID>lb_Yes</ID>
+    <VALUE>Yes</VALUE>
+  </item>
+  <item>
+    <ID>lb_No</ID>
+    <VALUE>No</VALUE>
+  </item>
+  <item>
+    <ID>lb_REGISTER</ID>
+    <VALUE>REGISTER NOW</VALUE>
+  </item>
+  <item>
+    <ID>lb_nameinput</ID>
+    <VALUE>Vui lòng nhập họ tên</VALUE>
+  </item>
+  <item>
+    <ID>lb_phoneinput</ID>
+    <VALUE>Vui lòng nhập số điện thoại</VALUE>
+  </item>
+  <item>
+    <ID>lb_emailinput</ID>
+    <VALUE>Vui lòng nhập đúng địa chỉ email</VALUE>
+  </item>
+  <item>
+    <ID>lb_cityinput</ID>
+    <VALUE>Vui lòng nhập địa chỉ của bạn</VALUE>
+  </item>
+  <item>
+    <ID>lb_suc</ID>
+    <VALUE>Đăng ký thành công chúng tôi sẽ liên hệ lại với bạn!</VALUE>
+  </item>
+  <item>
+    <ID>lb_fullinput</ID>
+    <VALUE>Vui lòng nhập đầy đủ thông tin</VALUE>
+  </item>
+  <item>
+    <ID>lb_noidung</ID>
+    <VALUE>Nội dung</VALUE>
+  </item>
 </template>
